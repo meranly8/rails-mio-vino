@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  winery_id: 1
+  user_id: 1
+  name: MyString
+  wine_type: MyString
+  year: 1
+
+two:
+  winery_id: 1
+  user_id: 1
+  name: MyString
+  wine_type: MyString
+  year: 1
