@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_02_17_073935) do
     t.string "name"
     t.string "wine_type"
     t.integer "year"
+    t.string "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_wines_on_user_id"
