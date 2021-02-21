@@ -15,4 +15,8 @@ class Wine < ApplicationRecord
     def self.order_by_price
         self.order(:price)
     end
+
+    def self.order_by_name
+        self.order(:name)
+    end
 end
