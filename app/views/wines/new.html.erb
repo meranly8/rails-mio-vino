@@ -1,0 +1,16 @@
+<h1>New Wine</h1>
+<%= form_for @wine do |f| %>
+    <%= f.label :name %>: 
+    <%= f.text_field :name %><br>
+    <%= f.label :wine_type %>: 
+    <%= f.text_field :wine_type %><br>
+    <%= f.label :year %>: 
+    <%= f.number_field :year, min: 1800 %><br>
+    <%= f.label :price %>: $
+    <%= f.number_field :price, min: 0 %><br>
+    <%= f.label :opened %>: 
+    <%= f.check_box :opened %><br>
+    <%= f.label :notes %>: 
+    <%= f.text_area :notes %><br><br>
+    <%= f.submit %>
+<% end %>
