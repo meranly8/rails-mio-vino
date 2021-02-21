@@ -1,6 +1,6 @@
 class Winery < ApplicationRecord
     validates :name, presence: true
-    validates :city, presence: true
+    validates :region, presence: true
     validates :country, presence: true
 
     has_many :wines

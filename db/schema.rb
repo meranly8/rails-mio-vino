@@ -24,27 +24,25 @@ ActiveRecord::Schema.define(version: 2021_02_17_073935) do
 
   create_table "wineries", force: :cascade do |t|
     t.string "name"
-    t.string "country"
-    t.string "city"
     t.string "state"
+    t.string "country"
+    t.string "region"
     t.integer "established"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "wines", force: :cascade do |t|
-    t.integer "winery_id"
-    t.integer "user_id"
+    t.integer "winery"
+    t.integer "user"
     t.string "name"
     t.string "wine_type"
     t.integer "year"
+    t.integer "price"
+    t.boolean "opened"
     t.string "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_wines_on_user_id"
-    t.index ["winery_id"], name: "index_wines_on_winery_id"
   end
 
-  add_foreign_key "wines", "users"
-  add_foreign_key "wines", "wineries"
 end
