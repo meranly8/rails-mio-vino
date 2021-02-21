@@ -4,6 +4,6 @@ class WinesController < ApplicationController
     end
 
     def show 
-
+        @wine = Wine.find_by(id: params[:id])
     end
 end
