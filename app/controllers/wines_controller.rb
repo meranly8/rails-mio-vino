@@ -1,6 +1,6 @@
 class WinesController < ApplicationController
     def index
-        @wines = Wine.all
+        @wines = Wine.order_by_year
     end
 
     def show 
