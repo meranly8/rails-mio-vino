@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2021_02_17_073935) do
   end
 
   create_table "wines", force: :cascade do |t|
-    t.integer "winery"
-    t.integer "user"
+    t.integer "winery_id"
+    t.integer "user_id"
     t.string "name"
     t.string "wine_type"
     t.integer "year"
