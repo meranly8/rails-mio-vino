@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root 'welcome#home'
 
   get '/signup', to: 'users#new'
-  post '/signup', to: 'users#create'
+  post '/users', to: 'users#create'
   get '/user/:id', to: 'users#show', as: '/user'
+
+  get '/login', to: 'sessions#new'
+  post '/sessions', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end
