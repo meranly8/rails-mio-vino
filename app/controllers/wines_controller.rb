@@ -31,6 +31,12 @@ class WinesController < ApplicationController
         redirect_to wine_path(wine)
     end
 
+    def destroy
+        wine = Wine.find_by(id: params[:id])
+        wine.destroy
+        redirect_to user_path(current_user)
+    end
+
     private
         def wine_params
             params.require(:wine).permit(:name, :wine_type)
