@@ -19,7 +19,6 @@ class WinesController < ApplicationController
             flash[:message] = @wine.errors.full_messages.join("")
             render :new
         end
-
     end
 
     private
