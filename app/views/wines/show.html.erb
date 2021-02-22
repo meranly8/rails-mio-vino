@@ -1,6 +1,6 @@
 <h1><%= @wine.name %></h1>
 <ul>
-    Winery: <%= @wine.winery.name %><br>
+    Winery: <%= link_to @wine.winery.name, winery_path(@wine.winery) %><br>
     Type: <%= @wine.wine_type %><br>
     Year: <%= @wine.year %><br>
     Price: $<%= @wine.price %><br>
@@ -10,3 +10,5 @@
     Added: <%= @wine.created_at %><br>
     Updated: <%= @wine.updated_at %>
 </ul>
+<br>
+<%= link_to "Edit #{@wine.name}", edit_wine_path(@wine) %> 
