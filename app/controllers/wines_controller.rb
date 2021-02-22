@@ -21,6 +21,16 @@ class WinesController < ApplicationController
         end
     end
 
+    def edit
+        @wine = Wine.find_by(id: params[:id])
+    end
+
+    def updated
+        wine = Wine.find_by(id: params[:id])
+        wine.update(wine_params)
+        redirect_to wine_path(wine)
+    end
+
     private
         def wine_params
             params.require(:wine).permit(:name, :wine_type)
