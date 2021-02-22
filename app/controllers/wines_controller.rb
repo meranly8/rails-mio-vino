@@ -10,4 +10,9 @@ class WinesController < ApplicationController
     def new
         @wine = Wine.new
     end
+    
+    private
+        def wine_params
+            params.require(:wine).permit(:name, :wine_type)
+        end
 end
