@@ -3,9 +3,7 @@
     <%= f.label :name %>: 
     <%= f.text_field :name %><br>
     <%= f.label :wine_type, "Wine Type: " %>
-    <%= f.select :wine_type, ["Cabernet Sauvignon", "Cabernet Franc", "Malbec","Syrah", "Zinfandel", "Pinot Noir", "Chardonnay", "Sauvignon Blanc", "Pinot Gris", "Riesling", ["Other", nil], ["Select Type", nil]] %><br>
-    <%= f.label :wine_type, "Other: " %>
-    <%= f.text_field :wine_type %><br> 
+    <%= f.select :wine_type, ["Cabernet Sauvignon", "Cabernet Franc", "Malbec","Syrah", "Zinfandel", "Pinot Noir", "Chardonnay", "Sauvignon Blanc", "Pinot Gris", "Riesling"], prompt: "Select Type" %><br>
     <%= f.label :year %>: 
     <%= f.number_field :year, min: 1800 %><br>
     <%= f.label :price %>: $
