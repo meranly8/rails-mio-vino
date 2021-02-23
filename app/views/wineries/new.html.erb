@@ -1,7 +1,7 @@
 <h1>New Winery</h1>
 
 <%= form_for(@winery) do |f| %>
-    <%= f.label :name %>: 
+    <%= f.label :name, "Winery Name:" %>
     <%= f.text_field :name %><br>
     <%= f.label :state %>: 
     <%= f.text_field :state %><br>
@@ -10,6 +10,21 @@
     <%= f.label :region %>: 
     <%= f.text_field :region %><br>
     <%= f.label :established %>: 
-    <%= f.number_field :established, min: 1800 %><br><br>
+    <%= f.number_field :established, min: 1800 %><br>
+    <hr><br>
+    <%= f.fields_for :wines do |w| %>
+        <%= w.label :name, "Wine Name:" %>
+        <%= w.text_field :name %><br>
+        <%= w.label :wine_type, "Wine Type: " %>
+        <%= w.select :wine_type, ["Cabernet Sauvignon", "Cabernet Franc", "Malbec","Syrah", "Zinfandel", "Pinot Noir", "Chardonnay", "Sauvignon Blanc", "Pinot Gris", "Riesling"], prompt: "Select Type" %><br>
+        <%= w.label :year %>: 
+        <%= w.number_field :year, min: 1800 %><br>
+        <%= w.label :price %>: $
+        <%= w.number_field :price, min: 0 %><br>
+        <%= w.label :opened %>: 
+        <%= w.check_box :opened %><br>
+        <%= w.label :notes %>: 
+        <%= w.text_area :notes %><br><br>
+    <% end %>
     <%= f.submit %>
 <% end %>
