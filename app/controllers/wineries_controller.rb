@@ -6,4 +6,8 @@ class WineriesController < ApplicationController
     def show
         @winery = Winery.find_by(id: params[:id])
     end
+
+    def new
+        @winery = Winery.new
+    end
 end
