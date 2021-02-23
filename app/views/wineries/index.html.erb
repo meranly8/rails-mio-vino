@@ -4,3 +4,5 @@
         <li><%= link_to winery.name, winery_path(winery) %></li>
     <% end %>
 </ul>
+<br><br>
+<%= button_to "Add Winery", new_winery_path, method: :get %>
