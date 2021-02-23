@@ -1,9 +1,15 @@
 class Wine < ApplicationRecord
+    belongs_to :user
+    belongs_to :winery
+    
     validates :name, :wine_type, :price, :year, presence: true
     validates :price, numericality: {greater_than: 0}
 
-    belongs_to :user
-    belongs_to :winery
+    def winery_attributes=(attr)
+        if !attr[:name].blank?
+            self.winery = Winery.find_or_create_by(name: attr[:name])
+        end
+    end
 
     def self.order_by_year
         self.order(year: :desc)
