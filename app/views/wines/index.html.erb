@@ -4,3 +4,5 @@
     <li><%= link_to w.name, wine_path(w) %>: <%= w.winery.name %> (<%= w.year %>)</li>
 <% end %>
 </ul>
+<br>
+<%= button_to "Add New Wine", new_wine_path, method: :get %>
