@@ -4,6 +4,8 @@ class Winery < ApplicationRecord
     has_many :wines
     has_many :users, through: :wines
 
+    accepts_nested_attributes_for :wines
+    
     def self.order_by_established
         self.order(:established)
     end
