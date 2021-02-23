@@ -1,1 +1,11 @@
 <h1><%= @winery.name %></h1>
+<h3>Established <%= @winery.established %></h3>
+<h4>Location: <%= @winery.state %> (<%= @winery.country %>)</h4>
+<h4>Region: <%= @winery.region %></h4>
+<br><br>
+<h2>Wines</h2>
+<ul>
+    <% @winery.wines.each do |w| %>
+        <li><%= link_to "#{w.name} (#{w.year})", wine_path(w) %> Owned By: <%= link_to w.user.name, user_path(w.user) %></li><br>
+    <% end %>
+</ul>
