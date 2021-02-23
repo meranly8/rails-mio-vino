@@ -9,6 +9,7 @@ class WineriesController < ApplicationController
 
     def new
         @winery = Winery.new
+        2.times {@winery.wines.build}
     end
 
     def create
@@ -23,6 +24,6 @@ class WineriesController < ApplicationController
 
     private
         def winery_params
-            params.require(:winery).permit(:name, :state, :country, :region, :established)
+            params.require(:winery).permit(:name, :state, :country, :region, :established, wines_attributes: [:name, :wine_type, :year, :price, :opened, :notes])
         end
 end
