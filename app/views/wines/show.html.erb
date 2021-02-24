@@ -4,7 +4,7 @@
     Type: <%= @wine.wine_type %><br>
     Year: <%= @wine.year %><br>
     Price: $<%= @wine.price %><br>
-    Opened? <%= @wine.opened %><br>
+    Opened? <%= @wine.opened ? "Yes" : "No" %><br>
     Notes: <%= @wine.notes %><br>
     <br>
     Added: <%= @wine.created_at %><br>
