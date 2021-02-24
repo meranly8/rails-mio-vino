@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
+
   resources :wines
   resources :wineries, only: [:index, :show, :new, :create]
 end
