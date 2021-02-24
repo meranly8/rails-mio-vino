@@ -1,0 +1,8 @@
+<h1><%= @user.name %></h1>
+
+<h3>Your Wines</h3>
+<ul>
+    <% @user.wines.each do |w| %>
+        <li><%= link_to w.name, wine_path(w) %></li>
+    <% end %>
+</ul>
