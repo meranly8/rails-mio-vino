@@ -1,0 +1,40 @@
+<% if @wine.errors.any? %>
+    <div id="error_explanation">
+    <h2> <%= pluralize(@wine.errors.count, "error") %> prohibited entry from being saved: </h2>
+    <ul>
+        <% @wine.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+    </div>
+<% end %>
+
+<%= form_for @wine do |f| %>
+    <%= f.label :name, "Wine Name:"%>
+    <%= f.text_field :name %><br>
+    <%= f.label :wine_type, "Wine Type: " %>
+    <%= f.select :wine_type, ["Cabernet Sauvignon", "Cabernet Franc", "Malbec","Syrah", "Zinfandel", "Pinot Noir", "Chardonnay", "Sauvignon Blanc", "Pinot Gris", "Riesling"], prompt: "Select Type" %><br>
+    <%= f.label :year %>: 
+    <%= f.number_field :year, min: 1800 %><br>
+    <%= f.label :price %>: $
+    <%= f.number_field :price, min: 0 %><br>
+    <%= f.label :opened %>: 
+    <%= f.check_box :opened %><br>
+    <%= f.label :notes %>: 
+    <%= f.text_area :notes %><br>
+    <br><hr><br>Select Existing or Create New Winery<br>
+    <%= f.label :name, "Winery Name:" %>
+    <%= f.collection_select :winery_id, Winery.all, :id, :name, prompt: "Select Winery" %>
+    <%= f.fields_for :winery do |w| %>
+        <%= w.text_field :name %><br>
+        <%= w.label :state %>:
+        <%= w.text_field :state %><br>
+        <%= w.label :country %>:
+        <%= w.text_field :country %><br>
+        <%= w.label :region %>:
+        <%= w.text_field :region %><br>
+        <%= w.label :established %>:
+        <%= w.number_field :established, min: 1800 %><br><br><br>
+    <% end %>
+    <%= f.submit %>
+<% end %>
