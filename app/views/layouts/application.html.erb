@@ -11,7 +11,9 @@
   </head>
 
   <body>
-    <br><%= link_to "Wines List", wines_path %> | <%= link_to "Wineries List", wineries_path %>
+  <br>
+    <%= nav_bar %><br>
+    Hi, <%= link_to current_user.name, user_path(current_user) %> | <%= link_to "Wine List", wines_path %> | <%= link_to "Winery List", wineries_path %> | <%= link_to "Logout", logout_path %>
     <% if flash[:message] %>
       <br><br>
       <div class="fields_with_errors"><%= flash[:message] %></div>
