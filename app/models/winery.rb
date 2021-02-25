@@ -1,5 +1,6 @@
 class Winery < ApplicationRecord
     validates :name, :region, :country, presence: true
+    validates :name, uniqueness: true
 
     has_many :wines
     has_many :users, through: :wines
