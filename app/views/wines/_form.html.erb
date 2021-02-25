@@ -13,7 +13,7 @@
     <%= f.label :name, "Wine Name:"%>
     <%= f.text_field :name %><br>
     <%= f.label :wine_type, "Wine Type: " %>
-    <%= f.select :wine_type, ["Cabernet Sauvignon", "Cabernet Franc", "Malbec","Syrah", "Zinfandel", "Pinot Noir", "Chardonnay", "Sauvignon Blanc", "Pinot Gris", "Riesling"], prompt: "Select Type" %><br>
+    <%= f.select :wine_type, ["Cabernet Sauvignon", "Cabernet Franc", "Malbec", "Red Blend", "Syrah", "Zinfandel", "Pinot Noir", "Chardonnay", "Sauvignon Blanc", "Pinot Gris", "Riesling"], prompt: "Select Type" %><br>
     <%= f.label :year %>: 
     <%= f.number_field :year, min: 1800 %><br>
     <%= f.label :price %>: $
@@ -22,13 +22,11 @@
     <%= f.check_box :opened %><br>
     <%= f.label :notes %>: 
     <%= f.text_area :notes %><br>
-    <br><hr><br>Select Existing or Create New Winery<br>
-    <%= f.label :name, "Winery Name:" %>
-    <%= f.collection_select :winery_id, Winery.all, :id, :name, prompt: "Select Winery" %>
+    <br><hr><br>Select Existing or Create New Winery<br><br>
     <%= f.fields_for :winery do |w| %>
+        <%= w.label :name, "Winery Name:" %>
+        <%= w.collection_select :id, Winery.all, :id, :name, prompt: "Select Winery" %>
         <%= w.text_field :name %><br>
-        <%= w.label :state %>:
-        <%= w.text_field :state %><br>
         <%= w.label :country %>:
         <%= w.text_field :country %><br>
         <%= w.label :region %>:
