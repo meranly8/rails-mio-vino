@@ -1,6 +1,10 @@
 class WinesController < ApplicationController
     def index
-        @wines = Wine.order_by_year
+        if params[:winery_id] && @winery = Winery.find_by_id(params[:winery_id])
+            @wines = @winery.wines.order_by_year
+        else
+            @wines = Wine.order_by_year
+        end
     end
 
     def show 
@@ -8,8 +12,12 @@ class WinesController < ApplicationController
     end
 
     def new
-        @wine = Wine.new
-        @wine.build_winery
+        if params[:winery_id] && @winery = Winery.find_by_id(params[:winery_id])
+            @wine = @winery.wines.build
+        else
+            @wine = Wine.new
+            @wine.build_winery
+        end
     end
 
     def create
@@ -40,6 +48,6 @@ class WinesController < ApplicationController
 
     private
         def wine_params
-            params.require(:wine).permit(:name, :wine_type, :year, :price, :opened, :notes, winery_attributes: [:name, :state, :country, :region, :established])
+            params.require(:wine).permit(:name, :wine_type, :year, :price, :opened, :notes, :winery_id, winery_attributes: [:name, :state, :country, :region, :established])
         end
 end
