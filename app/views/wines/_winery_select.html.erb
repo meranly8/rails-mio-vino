@@ -1,0 +1,11 @@
+<br><hr><br>Select Existing or Create New Winery<br><br>
+    <%= f.label :name, "Winery Name:" %>
+    <%= f.collection_select :winery_id, Winery.all, :id, :name, prompt: "Select Winery" %>
+    <%= f.fields_for :winery do |w| %>
+        <%= w.label :country %>:
+        <%= w.text_field :country %><br>
+        <%= w.label :region %>:
+        <%= w.text_field :region %><br>
+        <%= w.label :established %>:
+        <%= w.number_field :established, min: 1800 %><br><br><br>
+    <% end %>
