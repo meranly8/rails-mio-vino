@@ -9,3 +9,5 @@
         <li><%= link_to "#{w.name} (#{w.year})", wine_path(w) %> Owned By: <%= link_to w.user.name, user_path(w.user) %></li><br>
     <% end %>
 </ul>
+
+<%= link_to "Add #{@winery.name} Wine", new_winery_wine_path(@winery) %>
