@@ -7,7 +7,11 @@ class Wine < ApplicationRecord
 
     def winery_attributes=(attr)
         if !attr[:name].blank?
-            self.winery = Winery.find_or_create_by(name: attr[:name])
+            self.winery = Winery.find_or_create_by(name: attr[:name]) do |w|
+                w.country = attr[:country]
+                w.region = attr[:region]
+                w.established = attr[:established]
+            end
         end
     end
 
