@@ -9,7 +9,7 @@
     </div>
 <% end %>
 
-<%= form_for @wine do |f| %>
+<%= form_for [@winery, @wine] do |f| %>
     <%= f.label :name, "Wine Name:"%>
     <%= f.text_field :name %><br>
     <%= f.label :wine_type, "Wine Type: " %>
@@ -22,17 +22,6 @@
     <%= f.check_box :opened %><br>
     <%= f.label :notes %>: 
     <%= f.text_area :notes %><br>
-    <br><hr><br>Select Existing or Create New Winery<br><br>
-    <%= f.fields_for :winery do |w| %>
-        <%= w.label :name, "Winery Name:" %>
-        <%= w.collection_select :id, Winery.all, :id, :name, prompt: "Select Winery" %>
-        <%= w.text_field :name %><br>
-        <%= w.label :country %>:
-        <%= w.text_field :country %><br>
-        <%= w.label :region %>:
-        <%= w.text_field :region %><br>
-        <%= w.label :established %>:
-        <%= w.number_field :established, min: 1800 %><br><br><br>
-    <% end %>
+    <%= display_winery_fields(@winery, f) %>
     <%= f.submit %>
 <% end %>
